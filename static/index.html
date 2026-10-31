@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Model Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f5bff' stroke-width='2.4'%3E%3Cpath d='M12 2 21 7v10l-9 5-9-5V7z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></symbol>
+    <symbol id="i-convert" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M3 21v-5h5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17v-5"/><path d="M13 17V8"/><path d="M18 17v-9"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 3v18M17 3v18M2 9h5M2 15h5M17 9h5M17 15h5"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 15h10l1-15"/><path d="M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+    <symbol id="i-disk" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  </defs>
+</svg>
+
+<aside class="sidebar">
+  <div class="brand">
+    <svg class="ic logo"><use href="#i-logo"/></svg>
+    <div><b>Model Lab</b><small>Edge benchmarking</small></div>
+  </div>
+  <nav class="nav">
+    <button class="tab" data-tab="overview"><svg class="ic"><use href="#i-home"/></svg><span>Overview</span></button>
+    <div class="navlabel">Workflow</div>
+    <button class="tab" data-tab="convert"><svg class="ic"><use href="#i-convert"/></svg><span>Convert</span><em>1</em></button>
+    <button class="tab" data-tab="infer"><svg class="ic"><use href="#i-play"/></svg><span>Inference</span><em>2</em></button>
+    <button class="tab" data-tab="compare"><svg class="ic"><use href="#i-chart"/></svg><span>Compare</span><em>3</em></button>
+    <div class="navlabel">Assets</div>
+    <button class="tab" data-tab="models"><svg class="ic"><use href="#i-layers"/></svg><span>Models</span><i class="count" id="navModels"></i></button>
+    <button class="tab" data-tab="videos"><svg class="ic"><use href="#i-film"/></svg><span>Videos</span><i class="count" id="navVideos"></i></button>
+  </nav>
+  <div class="sidefoot">
+    <div id="sideDevice" class="sidedevice"><span class="dot"></span><span>Connecting…</span></div>
+    <button class="themebtn" id="themeBtn" title="Switch light / dark theme"><svg class="ic"><use href="#i-moon"/></svg><span>Theme</span></button>
+  </div>
+</aside>
+
+<div class="shell">
+  <header class="topbar">
+    <div class="crumbs"><span>Model Lab</span><svg class="ic"><use href="#i-arrow"/></svg><b id="pageTitle">Overview</b></div>
+    <div class="topright">
+      <div id="env" class="env"></div>
+      <span id="queue" class="queue"></span>
+    </div>
+  </header>
+
+  <main>
+  <!-- ======================================================== OVERVIEW -->
+  <section id="tab-overview" class="panel">
+    <div class="pagehead">
+      <div><h1>Overview</h1><p>Convert custom YOLO models, run them on the edge device and compare formats with saved, reproducible measurements.</p></div>
+      <button class="btn primary" data-goto="convert"><svg class="ic"><use href="#i-plus"/></svg>New conversion</button>
+    </div>
+    <div id="ovKpis" class="kpis"></div>
+    <div class="grid2">
+      <div class="card">
+        <div class="cardhead"><h2>Workflow</h2></div>
+        <div class="steps3" id="ovSteps"></div>
+      </div>
+      <div class="card">
+        <div class="cardhead"><h2>Device</h2><button class="btn ghost small" id="envRefresh" title="Read device info again"><svg class="ic"><use href="#i-refresh"/></svg>Refresh</button></div>
+        <div id="ovDevice"><p class="empty">Reading device info…</p></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="cardhead"><h2>Recent runs</h2></div>
+      <div id="ovRuns"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 1. CONVERT -->
+  <section id="tab-convert" class="panel">
+    <div class="pagehead">
+      <div><h1>Convert</h1><p>Export a trained <code>.pt</code> to ONNX and TensorRT. Each model name gets its own folder, so YOLOv8 and YOLO11 never overwrite each other.</p></div>
+    </div>
+    <div class="grid2 wide-left">
+      <div class="card">
+        <div class="cardhead"><h2>New conversion</h2></div>
+        <form id="convertForm">
+          <div class="formsec"><div class="secnum">1</div><div class="secbody">
+            <h3>Source model</h3>
+            <div class="seg">
+              <label><input type="radio" name="source" value="upload" checked> Upload .pt</label>
+              <label><input type="radio" name="source" value="existing"> From library</label>
+            </div>
+            <div data-show="source=upload" class="stack">
+              <label class="drop"><input type="file" name="weights" accept=".pt">
+                <svg class="ic"><use href="#i-upload"/></svg><span class="drop-t">Drop a <b>.pt</b> file here or <u>browse</u></span><span class="drop-f"></span></label>
+              <label class="field">Model name<input type="text" name="name" placeholder="filled from the file name, e.g. yolov8s_carfall"><small>Letters, numbers, _ - . Unique per model.</small></label>
+            </div>
+            <div data-show="source=existing"><label class="field">Model<select name="group" class="groupSelect"></select></label></div>
+          </div></div>
+
+          <div class="formsec"><div class="secnum">2</div><div class="secbody">
+            <h3>Output formats</h3>
+            <div class="tiles">
+              <label class="tile"><input type="checkbox" name="variants" value="onnx_fp32" checked><b>ONNX</b><span class="tag">FP32</span><small>Portable graph · runs with ONNX Runtime</small></label>
+              <label class="tile"><input type="checkbox" name="variants" value="trt_fp32" checked><b>TensorRT</b><span class="tag">FP32</span><small>GPU engine · full precision</small></label>
+              <label class="tile"><input type="checkbox" name="variants" value="trt_fp16" checked><b>TensorRT</b><span class="tag">FP16</span><small>GPU engine · usually the best trade-off</small></label>
+              <label class="tile off"><input type="checkbox" disabled><b>TensorRT</b><span class="tag">INT8</span><small>On hold</small></label>
+            </div>
+            <small class="muted">The original weights are always kept as <b>PyTorch FP32</b>.</small>
+          </div></div>
+
+          <div class="formsec"><div class="secnum">3</div><div class="secbody">
+            <h3>Options</h3>
+            <div class="row3">
+              <label class="field">Image size<input type="number" name="imgsz" value="640" min="32" max="4096" step="32"><small>Use the training size. Engines are fixed to it.</small></label>
+            </div>
+            <label class="inline"><input type="checkbox" name="rebuild"> Rebuild formats that already exist</label>
+          </div></div>
+
+          <div class="actions"><button class="btn primary" type="submit"><svg class="ic"><use href="#i-convert"/></svg>Start conversion</button><span class="msg"></span></div>
+        </form>
+        <div id="convertJob"></div>
+      </div>
+
+      <div class="stackcol">
+        <div class="card">
+          <div class="cardhead"><h2>Before you convert</h2></div>
+          <ul class="tips">
+            <li><svg class="ic"><use href="#i-cpu"/></svg><div><b>Build on the target device.</b> A TensorRT engine only runs on the GPU and TensorRT version that built it.</div></li>
+            <li><svg class="ic"><use href="#i-zap"/></svg><div><b>Max performance mode.</b> Run <code>sudo nvpmodel -m 0 &amp;&amp; sudo jetson_clocks</code> for stable timings.</div></li>
+            <li><svg class="ic"><use href="#i-info"/></svg><div><b>Expect a few minutes per engine</b> on Orin Nano. One job runs at a time; others wait in the queue.</div></li>
+            <li><svg class="ic"><use href="#i-layers"/></svg><div><b>Compare fairly.</b> Convert YOLOv8 and YOLO11 at the same image size.</div></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="cardhead"><h2>Library</h2><button class="btn ghost small" data-goto="models">Open <svg class="ic"><use href="#i-arrow"/></svg></button></div>
+          <div id="miniLibrary"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== 2. INFERENCE -->
+  <section id="tab-infer" class="panel">
+    <div class="pagehead">
+      <div><h1>Inference</h1><p>Run one model on a video, image, file path, USB camera or RTSP stream and inspect the output.</p></div>
+    </div>
+    <div class="grid2 wide-left">
+      <div class="card">
+        <div class="cardhead"><h2>Run a model</h2></div>
+        <form id="inferForm">
+          <label class="field">Model<select name="model" class="modelSelect"></select></label>
+          <div class="sourceBox"></div>
+          <div class="settingsBox"></div>
+          <div class="actions"><button class="btn primary" type="submit"><svg class="ic"><use href="#i-play"/></svg>Run inference</button><span class="msg"></span></div>
+        </form>
+        <div id="inferJob"></div>
+      </div>
+      <div class="card">
+        <div class="cardhead"><h2>Recent inference runs</h2></div>
+        <div id="inferHistory" class="history"></div>
+      </div>
+    </div>
+    <div id="inferResult"></div>
+  </section>
+
+  <!-- ======================================================== 3. COMPARE -->
+  <section id="tab-compare" class="panel">
+    <div class="pagehead">
+      <div><h1>Compare</h1><p>Run several models on the same source, one after another. Per-frame data, power readings and annotated videos are saved for the report.</p></div>
+    </div>
+    <div class="grid2 wide-left">
+      <div class="card">
+        <div class="cardhead"><h2>New comparison</h2></div>
+        <form id="compareForm">
+          <label class="field">Title <input type="text" name="title" placeholder="e.g. YOLOv8s vs YOLO11s · car_fall.mp4"></label>
+          <div class="field"><span>Models <small>tick 2 or more</small></span><div id="compareModels" class="modelChecks"></div></div>
+          <label class="field">Baseline<select name="baseline" id="baseline"></select><small>Speed-up and agreement are measured against this model.</small></label>
+          <div class="sourceBox"></div>
+          <div class="settingsBox"></div>
+          <details class="more">
+            <summary>Accuracy with labels <span class="tag">optional mAP</span></summary>
+            <div class="row3">
+              <label class="field">Dataset YAML on this device<input type="text" name="data_yaml" placeholder="/home/jetson/datasets/car_fall/data.yaml"></label>
+              <label class="field">Split<select name="split"><option value="val">val</option><option value="test">test</option></select></label>
+            </div>
+            <small class="muted">Runs validation for every model after the video runs: mAP50, mAP50-95, precision, recall.</small>
+          </details>
+          <label class="field">Notes<textarea name="notes" rows="2" placeholder="Power mode, camera, anything the mentor should know"></textarea></label>
+          <div class="actions"><button class="btn primary" type="submit"><svg class="ic"><use href="#i-chart"/></svg>Run comparison</button><span class="msg"></span></div>
+        </form>
+        <div id="compareJob"></div>
+      </div>
+      <div class="card">
+        <div class="cardhead"><h2>Saved comparisons</h2><button class="btn ghost small" id="refreshHistory"><svg class="ic"><use href="#i-refresh"/></svg></button></div>
+        <div id="compareHistory" class="history"></div>
+      </div>
+    </div>
+    <div id="compareResult"></div>
+  </section>
+
+  <!-- ======================================================== MODELS -->
+  <section id="tab-models" class="panel">
+    <div class="pagehead">
+      <div><h1>Models</h1><p>Every model and its exported formats. Exported files have a fixed input size, shown per file.</p></div>
+      <div class="actions">
+        <button class="btn" id="refreshModels"><svg class="ic"><use href="#i-refresh"/></svg>Refresh</button>
+        <button class="btn primary" data-goto="convert"><svg class="ic"><use href="#i-plus"/></svg>Convert</button>
+      </div>
+    </div>
+    <details class="card collapsible" id="importCard">
+      <summary><h2>Import an existing .onnx / .engine</h2><small class="muted">for files exported elsewhere</small></summary>
+      <form id="importForm">
+        <div class="row3">
+          <label class="drop compact"><input type="file" name="file" accept=".onnx,.engine">
+            <svg class="ic"><use href="#i-upload"/></svg><span class="drop-t">Drop <b>.onnx / .engine</b> or <u>browse</u></span><span class="drop-f"></span></label>
+          <label class="field">Model name<input type="text" name="name" list="groupNames" placeholder="same name as the .pt groups them"></label>
+          <label class="field">Engine precision<select name="precision"><option value="auto">Auto-detect</option><option value="fp32">FP32</option><option value="fp16">FP16</option><option value="int8">INT8</option></select></label>
+          <label class="field">Image size<input type="number" name="imgsz" placeholder="auto" min="32" max="4096" step="32"></label>
+        </div>
+        <datalist id="groupNames"></datalist>
+        <div class="actions"><label class="inline"><input type="checkbox" name="rebuild"> Replace if it exists</label>
+          <button class="btn" type="submit"><svg class="ic"><use href="#i-upload"/></svg>Import</button><span class="msg"></span></div>
+        <small class="muted">TensorRT engines only run on the GPU and TensorRT version that built them.</small>
+      </form>
+    </details>
+    <div id="library"></div>
+  </section>
+
+  <!-- ======================================================== VIDEOS -->
+  <section id="tab-videos" class="panel">
+    <div class="pagehead">
+      <div><h1>Videos</h1><p>Test videos kept on the device. Reuse them so every model sees exactly the same frames.</p></div>
+      <button class="btn" id="refreshVideos"><svg class="ic"><use href="#i-refresh"/></svg>Refresh</button>
+    </div>
+    <div class="card">
+      <form id="videoForm" class="uploadRow">
+        <label class="drop compact"><input type="file" name="file" accept="video/*">
+          <svg class="ic"><use href="#i-upload"/></svg><span class="drop-t">Drop a video (mp4, avi, mov, mkv, webm) or <u>browse</u></span><span class="drop-f"></span></label>
+        <div class="actions"><button class="btn primary" type="submit"><svg class="ic"><use href="#i-upload"/></svg>Upload</button><span class="msg"></span></div>
+      </form>
+    </div>
+    <div class="card flush"><div id="videoList"></div></div>
+  </section>
+  </main>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<template id="sourceTpl">
+  <fieldset class="src">
+    <legend>Source</legend>
+    <div class="seg">
+      <label><input type="radio" name="source_type" value="library" checked> Video library</label>
+      <label><input type="radio" name="source_type" value="upload"> Upload</label>
+      <label><input type="radio" name="source_type" value="path"> Path · camera · RTSP</label>
+    </div>
+    <div data-show="source_type=library"><select name="video_name" class="videoSelect"></select></div>
+    <div data-show="source_type=upload">
+      <label class="drop compact"><input type="file" name="source_file">
+        <svg class="ic"><use href="#i-upload"/></svg><span class="drop-t">Drop a video or image or <u>browse</u></span><span class="drop-f"></span></label>
+      <small class="muted">Videos are also added to the video library.</small>
+    </div>
+    <div data-show="source_type=path"><input type="text" name="source_path" placeholder="/home/jetson/test.mp4  ·  0 (USB camera)  ·  rtsp://…"><small class="muted">Cameras and streams need “Max frames”.</small></div>
+  </fieldset>
+</template>
+
+<template id="settingsTpl">
+  <fieldset>
+    <legend>Settings</legend>
+    <div class="row3">
+      <label class="field">Image size<input type="number" name="imgsz" placeholder="auto" min="32" max="4096" step="32"><small>.pt only; exports are fixed</small></label>
+      <label class="field">Confidence<input type="number" name="conf" value="0.25" min="0.01" max="0.99" step="0.01"></label>
+      <label class="field">IoU (NMS)<input type="number" name="iou" value="0.7" min="0.1" max="0.95" step="0.05"></label>
+      <label class="field">Device<select name="device"><option value="auto">Auto (GPU if available)</option><option value="gpu">GPU</option><option value="cpu">CPU</option></select></label>
+      <label class="field">Warm-up frames<input type="number" name="warmup" value="10" min="0" max="500"><small>Not counted in stats</small></label>
+      <label class="field">Max frames<input type="number" name="max_frames" value="0" min="0"><small>0 = whole video</small></label>
+    </div>
+    <label class="inline"><input type="checkbox" name="save" checked> Save annotated output <small class="muted">· lowers pipeline FPS, not model FPS</small></label>
+  </fieldset>
+</template>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Runtime data created by the app: uploaded models, videos, run results
+data/
+jobs/
+runs/
+video_out/
+
+# Model weights and exported models (research data, shared separately)
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Videos and images
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
